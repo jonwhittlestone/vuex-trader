@@ -1,29 +1,7 @@
 <template>
     <div class="container">
 
-      <nav class="navbar navbar-default">
-          <div class="container-fluid">
-              <div class="navbar-header">
-                  Stock Trader
-              </div>
-
-              <div class="collapse navbar-collapse">
-                  <ul class="nav navbar-nav">
-                    <router-link to='/portfolio' tag='li'>
-                    <a> 
-                      Portfolio
-                    </a>  
-                     </router-link> 
-
-                    <router-link to='/stocks' tag='li'>
-                    <a> 
-                      Stocks
-                    </a>  
-                     </router-link> 
-                  </ul>
-              </div><!-- /.navbar-collapse -->
-          </div><!-- /.container-fluid -->
-      </nav>
+      <app-header></app-header>
 
       <hr>
 
@@ -46,6 +24,7 @@
           1. /#           // starting page
           2. /stocks      // choose a stock
           3. /portfolio   // after adding, we can see in portfolio
+        3. Set up basic header component with nav containing links
     */
     export default {
 

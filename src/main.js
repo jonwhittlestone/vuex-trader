@@ -2,8 +2,12 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import App from './App.vue'
 
-import { routes } from './routes';
+// component(s)
+import Header from './components/Header.vue'
+Vue.component('app-header', Header);
 
+
+import { routes } from './routes';
 Vue.use(VueRouter)
 
 const router = new VueRouter({
