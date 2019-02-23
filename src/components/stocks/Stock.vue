@@ -33,10 +33,12 @@
 
 <script>
 export default {
-  props: ["stock"],
+  props: {
+    stock: { type: Object }
+  },
   data() {
     return {
-      quantity: 0
+      quantity: null
     };
   },
   methods: {
@@ -46,8 +48,7 @@ export default {
         stockPrice: this.stock.price,
         quantity: parseInt(this.quantity)
       };
-      console.clear();
-      console.log(order);
+      this.$store.dispatch("processOrder", order);
       this.quantity = null;
     }
   }
