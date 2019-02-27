@@ -18,7 +18,7 @@ const actions = {
   processOrder: ({ commit }, order) => {
     console.log("the process order action");
     console.log(order);
-    // commit();
+    commit("BUY_STOCK", order);
   },
   initStocks: ({ commit }) => {
     commit("SET_STOCKS", stocks);

@@ -57,9 +57,13 @@
 </template>
 <script>
 export default {
+  computed: {
+    funds() {
+      return this.$store.getters.funds;
+    }
+  },
   data() {
     return {
-      funds: this.$store.state.balance,
       isDropdownOpen: false
     };
   }

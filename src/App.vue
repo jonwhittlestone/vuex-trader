@@ -27,8 +27,12 @@
 
     4. Set up stocks grid/child components, buy button which lets you submit only when field is populated/valid number/number > 0
 
-    5. (video 281) Set up state management, which mutations/actions i have and how to dispatch them
+    5. Set up state management, which mutations/actions in a module and dispatch them from stock component (video 281) 
+
+    6. Making the Buy/Sell buttons work by setting up mutations on the portfolio module (videos 282/283/284) 
+
     */
+
 import Header from "./components/Header.vue";
 
 export default {
