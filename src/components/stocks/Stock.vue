@@ -11,18 +11,19 @@
       <div class="panel-body">
         <div class="input-group">
           <input
-            type="text"
+            type="number"
             class="form-control"
             v-model="quantity"
             placeholder="Enter Quantity .."
+            :class="{danger: insufficientFunds}"
           >
           <span class="input-group-btn">
             <button
               class="btn btn-success"
-              :disabled="quantity <= 0 || Number.isInteger(quantity)"
+              :disabled="insufficientFunds || quantity <= 0 || Number.isInteger(quantity)"
               type="button"
               @click="submitBuyStock"
-            >Submit</button>
+            >{{insufficientFunds ? "Insufficient Funds" : "Buy" }}</button>
           </span>
         </div>
         <!-- /input-group -->
@@ -31,7 +32,15 @@
   </div>
 </template>
 
+<style scoped>
+.danger {
+  border: 1px red solid;
+}
+</style>
+
 <script>
+import { mapGetters } from "vuex";
+
 export default {
   props: {
     stock: { type: Object }
@@ -40,6 +49,12 @@ export default {
     return {
       quantity: null
     };
+  },
+  computed: {
+    ...mapGetters(["funds"]),
+    insufficientFunds() {
+      return parseInt(this.quantity) * this.stock.price > this.funds;
+    }
   },
   methods: {
     submitBuyStock() {
@@ -54,6 +69,3 @@ export default {
   }
 };
 </script>
-
-<style scoped>
-</style>

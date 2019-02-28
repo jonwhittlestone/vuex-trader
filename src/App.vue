@@ -29,7 +29,9 @@
 
     5. Set up state management, which mutations/actions in a module and dispatch them from stock component (video 281) 
 
-    6. Making the Buy/Sell buttons work by setting up mutations on the portfolio module (videos 282/283/284) 
+    6. Making the Buy button work by setting up mutations on the portfolio module (videos 282/283/284) 
+
+    7. Making the sell button work and a guard on the balance when buying/selling (video 285)
 
     */
 
