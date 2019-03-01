@@ -33,6 +33,7 @@
 
     7. Making the sell button work and a guard on the balance when buying/selling (video 285)
 
+    9. Saving and Loading portfolio data with vue-resource and firebase (videos 292, 294, 295)
     */
 
 import Header from "./components/Header.vue";

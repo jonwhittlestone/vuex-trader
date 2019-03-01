@@ -50,19 +50,18 @@ export default {
     };
   },
   computed: {
-    ...mapActions(["sellStock"]),
-    ...mapGetters(["funds", "stockPortfolio"]),
-
     insufficientQuantity() {
       return this.quantity > this.stock.quantity;
     }
   },
   methods: {
+    ...mapActions(["sellStock"]),
+    ...mapGetters(["funds", "stockPortfolio"]),
     submitSellStock() {
       const order = {
         stockId: this.stock.id,
         stockPrice: this.stock.price,
-        quantity: this.quantity
+        quantity: parseInt(this.quantity)
       };
       this.sellStock(order);
       this.quantity = 0;
