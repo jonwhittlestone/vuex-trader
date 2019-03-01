@@ -33,6 +33,8 @@
 
     7. Making the sell button work and a guard on the balance when buying/selling (video 285)
 
+    8. Ending the day (randomizing the stocks/recalcating stock prices) and filter for currency (video 288/)
+
     */
 
 import Header from "./components/Header.vue";

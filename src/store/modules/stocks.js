@@ -16,8 +16,6 @@ const mutations = {
 
 const actions = {
   processOrder: ({ commit }, order) => {
-    console.log("the process order action");
-    console.log(order);
     commit("BUY_STOCK", order);
   },
   initStocks: ({ commit }) => {
