@@ -35,6 +35,7 @@
 
     8. Ending the day (randomizing the stocks/recalcating stock prices) and filter for currency (video 288/)
 
+    9. Saving and Loading portfolio data with vue-resource and firebase (videos 292, 294, 295)
     */
 
 import Header from "./components/Header.vue";

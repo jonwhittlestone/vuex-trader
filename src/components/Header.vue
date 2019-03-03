@@ -1,10 +1,9 @@
 <template>
-  <div>
-    <nav class="navbar navbar-default">
-      <div class="container-fluid">
-        <div class="navbar-header">
-          <router-link to="/" class="navbar-brand">Stock Trader</router-link>
-        </div>
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <router-link to="/" class="navbar-brand">Stock Trader</router-link>
+      </div>
 
         <div class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
@@ -27,37 +26,34 @@
               :class="{open: isDropdownOpen}"
               @click="isDropdownOpen = !isDropdownOpen"
             >
-              <a
-                href="#"
-                class="dropdown-toggle"
-                data-toggle="dropdown"
-                role="button"
-                aria-haspopup="true"
-                aria-expanded="false"
-              >
-                Save & Load
-                <span class="caret"></span>
-              </a>
-              <ul class="dropdown-menu">
-                <li>
-                  <a href="#">Save Data</a>
-                </li>
-                <li>
-                  <a href="#">Load Data</a>
-                </li>
-              </ul>
-            </li>
-          </ul>
-        </div>
-        <!-- /.navbar-collapse -->
+              Save & Load
+              <span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu">
+              <li>
+                <a href="#" @click="saveData">Save Data</a>
+              </li>
+              <li>
+                <a href="#" @click="loadData">Load Data</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
       </div>
-      <!-- /.container-fluid -->
-    </nav>
-  </div>
+      <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container-fluid -->
+  </nav>
 </template>
+
 <script>
 import { mapActions } from "vuex";
 export default {
+  data() {
+    return {
+      isDropdownOpen: false
+    };
+  },
   computed: {
     funds() {
       return this.$store.getters.funds;
@@ -72,6 +68,21 @@ export default {
     ...mapActions(["randomizeStocks"]),
     endDay() {
       this.randomizeStocks();
+    }
+  methods: {
+    ...mapActions({
+      fetchData: "loadData"
+    }),
+    saveData() {
+      const data = {
+        funds: this.$store.getters.funds,
+        stockPortfolio: this.$store.getters.stockPortfolio,
+        stocks: this.$store.getters.stocks
+      };
+      this.$http.put("data.json", data);
+    },
+    loadData() {
+      this.fetchData();
     }
   }
 };
