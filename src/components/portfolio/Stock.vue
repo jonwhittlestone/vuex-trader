@@ -63,7 +63,7 @@ export default {
         stockPrice: this.stock.price,
         quantity: parseInt(this.quantity)
       };
-      this.placeSellOrder(order);
+      this.sellStock(order);
       this.quantity = 0;
     }
   }
